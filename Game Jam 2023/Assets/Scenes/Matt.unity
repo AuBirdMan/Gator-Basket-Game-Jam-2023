@@ -135,8 +135,8 @@ GameObject:
   - component: {fileID: 53411737}
   - component: {fileID: 53411735}
   m_Layer: 0
-  m_Name: TallPlayer
-  m_TagString: Untagged
+  m_Name: Loong Player
+  m_TagString: Tall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -432,8 +432,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 906770112}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.04, y: -4.63, z: 0}
-  m_LocalScale: {x: 22.44876, y: 7.918846, z: 1}
+  m_LocalPosition: {x: 0.7968, y: -4.8463, z: 0}
+  m_LocalScale: {x: 38.750275, y: 7.486744, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -600,7 +600,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 9.8
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -615,9 +615,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1422091013}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5281ead6718a55d42bbbe336012c2ad7, type: 3}
+  m_Script: {fileID: 11500000, guid: eee9f6970274b4e4a9a75a47c27d3b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0.5
+  jumpThrust: 34
+  groundObject:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1933637021
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,8 +635,8 @@ GameObject:
   - component: {fileID: 1933637024}
   - component: {fileID: 1933637022}
   m_Layer: 0
-  m_Name: ShortPlayer
-  m_TagString: Untagged
+  m_Name: Short Player
+  m_TagString: Short
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
