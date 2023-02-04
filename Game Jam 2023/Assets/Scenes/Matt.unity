@@ -128,8 +128,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4182253538055878662, guid: 8e66863cc9411994bb084d0c55c16dd9, type: 3}
   m_PrefabInstance: {fileID: 4182253537671750421}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &704338712
-BoxCollider2D:
+--- !u!58 &704338714
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -142,18 +142,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.75
 --- !u!1001 &756233824
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -341,6 +331,10 @@ PrefabInstance:
       propertyPath: player_go
       value: 
       objectReference: {fileID: 1365727543}
+    - target: {fileID: 4182253538055878656, guid: 8e66863cc9411994bb084d0c55c16dd9, type: 3}
+      propertyPath: wispSpeed
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4182253538055878657, guid: 8e66863cc9411994bb084d0c55c16dd9, type: 3}
       propertyPath: m_RootOrder
       value: 1
