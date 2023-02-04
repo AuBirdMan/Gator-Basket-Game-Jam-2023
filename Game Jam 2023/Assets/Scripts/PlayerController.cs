@@ -8,9 +8,11 @@ public class PlayerController : MonoBehaviour
     public float jumpThrust;
     private Rigidbody2D rb;
     private float horizontalMovement;
-    private float maxVelocity = 15f;
+    private float maxVelocity = 18f;
     [SerializeField] private LayerMask groundObject;
     private BoxCollider2D currentCollider;
+    private Animator currentAnimator;
+    private GameObject currentGameObject;
     private bool isLittle;
     // Start is called before the first frame update
     void Start()
@@ -19,16 +21,39 @@ public class PlayerController : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         currentCollider = gameObject.transform.GetChild(1).GetComponent<BoxCollider2D>();
         this.gameObject.tag = "Tall";
+        currentAnimator = gameObject.transform.GetChild(1).GetComponent<Animator>();
+        currentGameObject = gameObject.transform.GetChild(1).gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
+        currentAnimator.SetFloat("yVelocity", rb.velocity.y);
+        if(rb.velocity.x < 0){
+            currentGameObject.GetComponent<SpriteRenderer>().flipX =false;
+        }
+        else if(rb.velocity.x > 0){
+            currentGameObject.GetComponent<SpriteRenderer>().flipX = true;    
+        }
+        if(rb.velocity.y < 0){
+            currentAnimator.SetBool("IsFalling", true);
+        }
+        else{
+            currentAnimator.SetBool("IsFalling", false);
+        }
+
         if(IsGrounded() && (rb.velocity.x > 10 || rb.velocity.x < -10)){
             rb.velocity -= rb.velocity / 2 * Vector2.right;
         }
         //gets left right movement
         horizontalMovement = Input.GetAxis("Horizontal");
+
+        if(horizontalMovement != 0){
+            currentAnimator.SetBool("IsWalking", true);
+        }
+        else{
+            currentAnimator.SetBool("IsWalking", false);
+        }
         //if the player just started moving, give them small initial boost of momentum
         //else just add velocity until max velocity is hit
         //initial movement
@@ -57,6 +82,8 @@ public class PlayerController : MonoBehaviour
                 gameObject.transform.GetChild(0).gameObject.SetActive(false);
                 gameObject.transform.GetChild(1).gameObject.SetActive(true);
                 currentCollider = gameObject.transform.GetChild(1).GetComponent<BoxCollider2D>();
+                currentAnimator = gameObject.transform.GetChild(1).GetComponent<Animator>();
+                currentGameObject = gameObject.transform.GetChild(1).gameObject;
                 this.gameObject.tag = "Tall";
             }
             //to kid
@@ -66,6 +93,8 @@ public class PlayerController : MonoBehaviour
                 gameObject.transform.GetChild(0).gameObject.SetActive(true);
                 gameObject.transform.GetChild(1).gameObject.SetActive(false);
                 currentCollider = gameObject.transform.GetChild(0).GetComponent<BoxCollider2D>();
+                currentAnimator = gameObject.transform.GetChild(0).GetComponent<Animator>();
+                currentGameObject = gameObject.transform.GetChild(0).gameObject;
                 this.gameObject.tag = "Short";
                 
             }
@@ -74,6 +103,13 @@ public class PlayerController : MonoBehaviour
     }
 
     private bool IsGrounded(){
-        return Physics2D.BoxCast(currentCollider.bounds.center, currentCollider.bounds.size, 0f, Vector2.down, 0.1f, groundObject);
+        bool result = Physics2D.BoxCast(currentCollider.bounds.center, currentCollider.bounds.size, 0f, Vector2.down, 0.1f, groundObject);
+        if(result){
+            currentAnimator.SetBool("IsGrounded", true);
+        }
+        else{
+            currentAnimator.SetBool("IsGrounded", false);
+        }
+        return result;
     }
 }
