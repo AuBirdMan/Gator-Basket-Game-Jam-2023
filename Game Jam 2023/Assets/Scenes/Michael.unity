@@ -207,31 +207,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &98308573 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1777784495809754210, guid: 7e297980e7580b741993b9d7601c10c9, type: 3}
-  m_PrefabInstance: {fileID: 3273671701177116150}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &98308575
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 98308573}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ed83eb44f9e267e469a2da249a2af06c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &147738503
 PrefabInstance:
   m_ObjectHideFlags: 0
