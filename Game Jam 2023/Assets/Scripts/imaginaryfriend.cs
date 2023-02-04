@@ -11,6 +11,8 @@ public class imaginaryfriend : MonoBehaviour
     private Vector2 player_pos;
     public GameObject player_go;
     private Renderer rend;
+    private Vector2 wispGoal;
+    [SerializeField] private float wispSpeed;
 
     // Start is called before the first frame update
     void Start(){
@@ -30,10 +32,41 @@ public class imaginaryfriend : MonoBehaviour
         else {rend.enabled = false;}
 
         player_pos = player_go.transform.position;
+        
         if (player_rb.velocity.x > 0)
         {
-            wisp.position = new Vector2(player_pos.x - 1, player_pos.y + 2);
+            wispGoal = new Vector2(player_pos.x - 1f, player_pos.y + 2f);
         }
-        else { wisp.position = new Vector2(player_pos.x + 1, player_pos.y + 2); }
+        else if (player_rb.velocity.x < 0)
+        {
+            wispGoal = new Vector2(player_pos.x + 1f, player_pos.y + 2f);
+        }
+        else { wispGoal = new Vector2(player_pos.x, player_pos.y + 2.5f); }
+
+        if (wisp.position.x < wispGoal.x)
+        {
+            wisp.velocity = new Vector2(wispSpeed, wisp.velocity.y);
+        }
+        else if (wisp.position.x > wispGoal.x)
+        {
+            wisp.velocity = new Vector2(-wispSpeed, wisp.velocity.y);
+        }
+        else if (wisp.position.x == wispGoal.x)
+        {
+            wisp.velocity = new Vector2(0f, wisp.velocity.y);
+        }
+
+        if (wisp.position.y < wispGoal.y)
+        {
+            wisp.velocity = new Vector2(wisp.velocity.x, wispSpeed);
+        }
+        else if (wisp.position.y > wispGoal.y)
+        {
+            wisp.velocity = new Vector2(wisp.velocity.x, -wispSpeed);
+        }
+        else if (wisp.position.y == wispGoal.y) 
+        { 
+            wisp.velocity = new Vector2(wisp.velocity.x, 0f); 
+        }
     }
 }
