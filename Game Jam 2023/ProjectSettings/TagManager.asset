@@ -8,6 +8,7 @@ TagManager:
   - Short
   - RespawnPoint
   - DeathZone
+  - Button
   layers:
   - Default
   - TransparentFX
