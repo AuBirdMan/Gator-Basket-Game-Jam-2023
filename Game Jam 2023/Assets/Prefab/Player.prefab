@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 1777784495809754215}
   m_Layer: 0
   m_Name: Loong Player
-  m_TagString: Untagged
+  m_TagString: Tall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -286,7 +286,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1777784495941187415
 Transform:
   m_ObjectHideFlags: 0

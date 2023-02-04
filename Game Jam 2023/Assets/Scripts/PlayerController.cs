@@ -15,9 +15,9 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isLittle = false;
+        isLittle = true;
         rb = gameObject.GetComponent<Rigidbody2D>();
-        currentCollider = gameObject.transform.GetChild(0).GetComponent<BoxCollider2D>();
+        currentCollider = gameObject.transform.GetChild(1).GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -36,11 +36,14 @@ public class PlayerController : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.E)){
             isLittle = !isLittle;
+            //to adult
             if(isLittle){
                 gameObject.transform.GetChild(0).gameObject.SetActive(false);
                 gameObject.transform.GetChild(1).gameObject.SetActive(true);
                 currentCollider = gameObject.transform.GetChild(1).GetComponent<BoxCollider2D>();
+                this.gameObject.tag = "Tall";
             }
+            //to kid
             else{
                 gameObject.transform.GetChild(0).gameObject.SetActive(true);
                 gameObject.transform.GetChild(1).gameObject.SetActive(false);
