@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Tall
   - Short
+  - RespawnPoint
+  - DeathZone
   layers:
   - Default
   - TransparentFX
