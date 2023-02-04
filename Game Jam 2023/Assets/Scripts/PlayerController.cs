@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public float jumpThrust;
     private Rigidbody2D rb;
     private float horizontalMovement;
-    private float maxVelocity = 20f;
+    private float maxVelocity = 15f;
     [SerializeField] private LayerMask groundObject;
     private BoxCollider2D currentCollider;
     private bool isLittle;
@@ -24,20 +24,30 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(IsGrounded() && (rb.velocity.x > 10 || rb.velocity.x < -10)){
+            rb.velocity -= rb.velocity / 2 * Vector2.right;
+        }
         //gets left right movement
-        horizontalMovement = Input.GetAxis("Horizontal") * speed;
+        horizontalMovement = Input.GetAxis("Horizontal");
         //if the player just started moving, give them small initial boost of momentum
         //else just add velocity until max velocity is hit
-        if(rb.velocity.x == 0 && horizontalMovement != 0){
-            rb.velocity += new Vector2(horizontalMovement * 3, 0f);
+        //initial movement
+        if(rb.velocity.x == 0 && horizontalMovement * speed != 0){
+            rb.velocity += new Vector2(horizontalMovement * speed * 100, 0f);
         }
+        //movement
         if(rb.velocity.x <= maxVelocity && rb.velocity.x >= -maxVelocity ){
-            rb.velocity += new Vector2(horizontalMovement, 0f);
+            rb.velocity += new Vector2(horizontalMovement * speed, 0f);
+            //if jumping and at max velocity
+            if(rb.velocity.x > maxVelocity){
+                rb.velocity = new Vector2(maxVelocity*horizontalMovement, rb.velocity.y);
+            }
         }
-
+        //jump
         if(Input.GetKeyDown(KeyCode.Space) && IsGrounded()){
             rb.AddForce(transform.up * jumpThrust, ForceMode2D.Impulse);
         }
+        //swap
         if(Input.GetKeyDown(KeyCode.E)){
             isLittle = !isLittle;
             //to adult

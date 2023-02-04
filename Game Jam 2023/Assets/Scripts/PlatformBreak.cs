@@ -18,7 +18,7 @@ public class PlatformBreak : MonoBehaviour
     IEnumerator RespawnPlatform(){
         yield return new WaitForSeconds(3f);
         this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
-            this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
     }
 
 }
