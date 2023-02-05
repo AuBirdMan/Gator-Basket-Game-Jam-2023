@@ -2,28 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class imaginaryfriend : MonoBehaviour
 {
 
-    private Rigidbody2D wisp;
+    private Rigidbody2D wisp_rb;
     private Rigidbody2D player_rb;
     private Vector2 player_pos;
     public GameObject player_go;
     private Renderer rend;
     private Vector2 wispGoal;
-    [SerializeField] private float wispSpeed;
     private bool cursorControl;
-    private Vector2 cursor_pos;
     private float MoveDelay = 0.01f;
+    private Vector2 force;
+    private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start(){
 
         rend = GetComponent<Renderer>();
         rend.enabled = false;
-        wisp = GetComponent<Rigidbody2D>();
+        wisp_rb = GetComponent<Rigidbody2D>();
         player_rb = GameObject.Find("Wisp").GetComponent<Rigidbody2D>();
+        rb = player_go.GetComponent<Rigidbody2D>();
         cursorControl = false;
 
     }
@@ -53,31 +55,34 @@ public class imaginaryfriend : MonoBehaviour
         }
 
         //"Fires" the wisp towards the cursor, aka sets the goal to be the cursor
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetMouseButtonDown(0))
         {
             cursorControl = true;
             wispGoal = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            wispSpeed = 20;
         }
 
-        Debug.Log(wispGoal);
-
-        if (Input.GetKeyDown(KeyCode.P))
+        if (wisp_rb.position == wispGoal)
         {
-            cursorControl = !cursorControl;
-            wispSpeed = 7;
+            cursorControl = false;
         }
 
         //Makes the wisp move towards its goal
         if (MoveDelay <= 0f){
-            gameObject.transform.position = Vector2.MoveTowards(wisp.position, wispGoal, 12f*Time.deltaTime);
+            gameObject.transform.position = Vector2.MoveTowards(wisp_rb.position, wispGoal, 12f*Time.deltaTime);
             MoveDelay = 0.003f;
         }
         MoveDelay -= Time.deltaTime;
-        if(Vector2.Distance(wisp.position, wispGoal) <= 0.5f){
-            wisp.velocity = new Vector2(0f, 0f);
+        if(Vector2.Distance(wisp_rb.position, wispGoal) <= 0.5f){
+            wisp_rb.velocity = new Vector2(0f, 0f);
         }
-        
 
+    }
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "GrapplePoint" && cursorControl)
+        {
+            rb.AddForce((wisp_rb.position - rb.position).normalized * 2000f);
+            cursorControl = false;
+        }
     }
 }
