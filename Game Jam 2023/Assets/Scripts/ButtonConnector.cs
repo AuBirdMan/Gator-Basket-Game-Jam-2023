@@ -15,7 +15,6 @@ public class ButtonConnector : MonoBehaviour
     // Update is called once per frame
     void Update(){
         isPressed = !button.transform.GetChild(0).gameObject.activeInHierarchy;
-        Debug.Log(isPressed);
         if(isPressed){
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
             gameObject.GetComponent<SpriteRenderer>().enabled = false;

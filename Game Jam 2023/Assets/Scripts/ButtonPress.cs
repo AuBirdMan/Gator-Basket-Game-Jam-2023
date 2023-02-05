@@ -6,12 +6,13 @@ public class ButtonPress : MonoBehaviour
 {
     public GameObject button;
     private float _ButtonRisedelay;
+    public float ButtonRisedelay;
     private bool onButton;
     // Start is called before the first frame update
     void OnTriggerEnter2D(Collider2D col){
         if(col.gameObject.tag == "Tall" || col.gameObject.tag == "Short"){
             button.SetActive(false);
-            _ButtonRisedelay = 5f;
+            _ButtonRisedelay = ButtonRisedelay;
             onButton = true;
         }
     }

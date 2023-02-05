@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlatformBreak : MonoBehaviour
 {
+    public float TimeTillRespawn = 3f;
     void OnCollisionStay2D(Collision2D col){
         GameObject player = GameObject.Find("Player");
         float yVelocity = player.GetComponent<Rigidbody2D>().velocity.y;
@@ -16,7 +17,7 @@ public class PlatformBreak : MonoBehaviour
     }
 
     IEnumerator RespawnPlatform(){
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(TimeTillRespawn);
         this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
     }
