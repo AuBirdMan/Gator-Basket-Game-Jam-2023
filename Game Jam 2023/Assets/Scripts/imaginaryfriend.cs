@@ -56,17 +56,20 @@ public class imaginaryfriend : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             cursorControl = true;
-            cursor_pos = Input.mousePosition;
-            wispGoal = cursor_pos;
+            wispGoal = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            wispSpeed = 20;
         }
 
+        Debug.Log(wispGoal);
 
         if (Input.GetKeyDown(KeyCode.P))
         {
             cursorControl = !cursorControl;
+            wispSpeed = 7;
         }
+
         //Makes the wisp move towards its goal
-        if(MoveDelay <= 0f){
+        if (MoveDelay <= 0f){
             gameObject.transform.position = Vector2.MoveTowards(wisp.position, wispGoal, 12f*Time.deltaTime);
             MoveDelay = 0.003f;
         }
