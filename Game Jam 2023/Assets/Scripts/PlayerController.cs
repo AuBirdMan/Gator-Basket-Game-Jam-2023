@@ -46,8 +46,6 @@ public class PlayerController : MonoBehaviour
         if(IsGrounded() && (rb.velocity.x > 10 || rb.velocity.x < -10)){
             rb.velocity -= rb.velocity / 2 * Vector2.right;
         }
-        //gets left right movement
-        horizontalMovement = Input.GetAxis("Horizontal");
 
         if(horizontalMovement != 0){
             currentAnimator.SetBool("IsWalking", true);
@@ -58,16 +56,12 @@ public class PlayerController : MonoBehaviour
         //if the player just started moving, give them small initial boost of momentum
         //else just add velocity until max velocity is hit
         //initial movement
-        if(rb.velocity.x == 0 && horizontalMovement * speed != 0){
-            rb.velocity += new Vector2(horizontalMovement * speed * 100, 0f);
-        }
+
+        //gets left right movement
+        horizontalMovement = Input.GetAxis("Horizontal");
         //movement
-        if(rb.velocity.x <= maxVelocity && rb.velocity.x >= -maxVelocity ){
-            rb.velocity += new Vector2(horizontalMovement * speed, 0f);
-            //if jumping and at max velocity
-            if(rb.velocity.x > maxVelocity){
-                rb.velocity = new Vector2(maxVelocity*horizontalMovement, rb.velocity.y);
-            }
+        if(horizontalMovement != 0){
+            rb.velocity = new Vector2(horizontalMovement * speed, rb.velocity.y);
         }
         //jump
         if(Input.GetKeyDown(KeyCode.Space) && IsGrounded()){
