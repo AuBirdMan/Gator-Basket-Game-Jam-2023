@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundObject;
     private BoxCollider2D currentCollider;
     private Animator currentAnimator;
-    private GameObject currentGameObject;
+    private GameObject currentGameObject, wisp;
     private bool isLittle;
     // Start is called before the first frame update
     void Start()
@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
         this.gameObject.tag = "Tall";
         currentAnimator = gameObject.transform.GetChild(1).GetComponent<Animator>();
         currentGameObject = gameObject.transform.GetChild(1).gameObject;
+        wisp = GameObject.Find("Wisp");
     }
 
     // Update is called once per frame
@@ -35,7 +36,7 @@ public class PlayerController : MonoBehaviour
         else if(rb.velocity.x > 0){
             currentGameObject.GetComponent<SpriteRenderer>().flipX = true;    
         }
-        if(rb.velocity.y < 0){
+        if(rb.velocity.y < -0.001f){
             currentAnimator.SetBool("IsFalling", true);
         }
         else{
@@ -85,6 +86,8 @@ public class PlayerController : MonoBehaviour
                 currentAnimator = gameObject.transform.GetChild(1).GetComponent<Animator>();
                 currentGameObject = gameObject.transform.GetChild(1).gameObject;
                 this.gameObject.tag = "Tall";
+                wisp.SetActive(false);
+
             }
             //to kid
             else{
@@ -96,6 +99,7 @@ public class PlayerController : MonoBehaviour
                 currentAnimator = gameObject.transform.GetChild(0).GetComponent<Animator>();
                 currentGameObject = gameObject.transform.GetChild(0).gameObject;
                 this.gameObject.tag = "Short";
+                wisp.SetActive(true);
                 
             }
         }
