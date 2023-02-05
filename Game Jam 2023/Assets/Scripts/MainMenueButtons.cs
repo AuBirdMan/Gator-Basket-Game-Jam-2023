@@ -27,6 +27,11 @@ public class MainMenueButtons : MonoBehaviour
         canvas.transform.GetChild(0).gameObject.SetActive(true);
     }
 
+     public void SetVolume (float volume)
+    {
+        Debug.Log(volume);
+    }
+
     public void Back(){
         GameObject canvas = GameObject.Find("Canvas");
         canvas.transform.GetChild(0).gameObject.SetActive(false);
