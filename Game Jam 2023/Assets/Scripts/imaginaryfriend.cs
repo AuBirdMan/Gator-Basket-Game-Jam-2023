@@ -62,9 +62,8 @@ public class imaginaryfriend : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            cursorControl = false;
+            cursorControl = !cursorControl;
         }
-
         //Makes the wisp move towards its goal
         if (wisp.position.x < wispGoal.x)
         {
@@ -74,10 +73,7 @@ public class imaginaryfriend : MonoBehaviour
         {
             wisp.velocity = new Vector2(-wispSpeed, wisp.velocity.y);
         }
-        else if (wisp.position.x == wispGoal.x)
-        {
-            wisp.velocity = new Vector2(0f, wisp.velocity.y);
-        }
+
         if (wisp.position.y < wispGoal.y)
         {
             wisp.velocity = new Vector2(wisp.velocity.x, wispSpeed);
@@ -86,11 +82,9 @@ public class imaginaryfriend : MonoBehaviour
         {
             wisp.velocity = new Vector2(wisp.velocity.x, -wispSpeed);
         }
-        else if (wisp.position.y == wispGoal.y) 
-        { 
-            wisp.velocity = new Vector2(wisp.velocity.x, 0f); 
+        if(Vector2.Distance(wisp.position, wispGoal) <= 0.5f){
+            wisp.velocity = new Vector2(0f, 0f);
         }
-
         
 
     }
