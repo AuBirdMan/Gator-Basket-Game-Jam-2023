@@ -18,7 +18,8 @@ public class imaginaryfriend : MonoBehaviour
     private Vector2 force;
     private Rigidbody2D rb;
     private float speedMultiplier;
-    [SerializeField] private float dashMultiplier;
+    [SerializeField] AudioSource launchSFX;
+    [SerializeField] AudioSource grappleSFX;
 
     // Start is called before the first frame update
     void Start(){
@@ -63,6 +64,7 @@ public class imaginaryfriend : MonoBehaviour
             cursorControl = true;
             wispGoal = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             speedMultiplier = 1.5f;
+            launchSFX.Play();
         }
 
         //Player dash 
@@ -103,7 +105,7 @@ public class imaginaryfriend : MonoBehaviour
     {
         if (col.gameObject.tag == "GrapplePoint" && cursorControl)
         {
-            Debug.Log("Hit");
+            grappleSFX.Play();
             rb.AddForce((wisp_rb.position - rb.position).normalized * 5000f);
             cursorControl = false;
         }

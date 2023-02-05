@@ -16,6 +16,11 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem poofEffect, poofEffect2;
     public GameObject clock;
     private float ClockDelay = 0.75f;
+    private bool landControl = false;
+    [SerializeField] private AudioSource jumpSFX;
+    [SerializeField] private AudioSource landingSFX;
+    [SerializeField] private AudioSource transformSFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +74,7 @@ public class PlayerController : MonoBehaviour
         //jump
         if(Input.GetKeyDown(KeyCode.Space) && IsGrounded()){
             rb.AddForce(transform.up * jumpThrust, ForceMode2D.Impulse);
+            jumpSFX.Play();
         }
         //swap
         if(Input.GetKeyDown(KeyCode.E)){
@@ -78,6 +84,7 @@ public class PlayerController : MonoBehaviour
             ClockDelay = 0.75f;
             gameObject.transform.position += new Vector3(0f, 0.7f, 0f);
             isLittle = !isLittle;
+            transformSFX.Play();
             //to adult
             if(!isLittle){
                 rb.mass = 10;
@@ -114,13 +121,24 @@ public class PlayerController : MonoBehaviour
         if(ClockDelay <= 0f){
             clock.SetActive(false);
         }
-       
+
+        if (rb.velocity.y < -1f && landControl)
+        {
+            landControl = false;
+        }
+
     }
 
     private bool IsGrounded(){
         bool result = Physics2D.BoxCast(currentCollider.bounds.center, currentCollider.bounds.size, 0f, Vector2.down, 0.1f, groundObject);
         if(result){
             currentAnimator.SetBool("IsGrounded", true);
+            if (!landControl)
+            {
+                landControl = true;
+
+                landingSFX.Play();
+            }
         }
         else{
             currentAnimator.SetBool("IsGrounded", false);
