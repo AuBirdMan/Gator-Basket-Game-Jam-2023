@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
         else if(rb.velocity.x > 0){
             currentGameObject.GetComponent<SpriteRenderer>().flipX = true;    
         }
-        if(rb.velocity.y < 0){
+        if(rb.velocity.y < -0.001f){
             currentAnimator.SetBool("IsFalling", true);
         }
         else{
