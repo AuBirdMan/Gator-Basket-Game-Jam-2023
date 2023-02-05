@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
             clock.SetActive(true);
             clock.transform.localScale = new Vector3(1f, 1f, 1f);
             ClockDelay = 0.75f;
-
+            gameObject.transform.position += new Vector3(0f, 0.7f, 0f);
             isLittle = !isLittle;
             //to adult
             if(!isLittle){
