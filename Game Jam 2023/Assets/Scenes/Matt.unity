@@ -208,7 +208,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -340,7 +340,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3042366394093543063, guid: 7e297980e7580b741993b9d7601c10c9, type: 3}
       propertyPath: m_Time
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4182253538370086507, guid: 7e297980e7580b741993b9d7601c10c9, type: 3}
+      propertyPath: dashMultiplier
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4182253538370086509, guid: 7e297980e7580b741993b9d7601c10c9, type: 3}
+      propertyPath: m_TagString
+      value: GrapplePoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e297980e7580b741993b9d7601c10c9, type: 3}

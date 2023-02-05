@@ -5706,6 +5706,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4182253538055878662, guid: 8e66863cc9411994bb084d0c55c16dd9, type: 3}
+      propertyPath: m_TagString
+      value: GrapplePoint
+      objectReference: {fileID: 0}
     - target: {fileID: 7189208494840032819, guid: 8e66863cc9411994bb084d0c55c16dd9, type: 3}
       propertyPath: looping
       value: 0
