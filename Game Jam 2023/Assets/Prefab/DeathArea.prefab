@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3747868639288667364}
   - component: {fileID: 4188771287976372272}
   m_Layer: 0
-  m_Name: Square
+  m_Name: DeathArea
   m_TagString: DeathZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -8,6 +8,7 @@ public class Death_Respawn : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col){
         if(col.gameObject.tag == "DeathZone"){
             transform.position = respawnPoint;
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
         else if(col.gameObject.tag == "RespawnPoint"){
             respawnPoint = col.gameObject.transform.position;

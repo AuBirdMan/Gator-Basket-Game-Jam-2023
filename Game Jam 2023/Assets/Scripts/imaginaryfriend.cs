@@ -15,6 +15,7 @@ public class imaginaryfriend : MonoBehaviour
     [SerializeField] private float wispSpeed;
     private bool cursorControl;
     private Vector2 cursor_pos;
+    private float MoveDelay = 0.01f;
 
     // Start is called before the first frame update
     void Start(){
@@ -22,7 +23,7 @@ public class imaginaryfriend : MonoBehaviour
         rend = GetComponent<Renderer>();
         rend.enabled = false;
         wisp = GetComponent<Rigidbody2D>();
-        player_rb = player_go.GetComponent<Rigidbody2D>();
+        player_rb = GameObject.Find("Wisp").GetComponent<Rigidbody2D>();
         cursorControl = false;
 
     }
@@ -65,23 +66,11 @@ public class imaginaryfriend : MonoBehaviour
             cursorControl = !cursorControl;
         }
         //Makes the wisp move towards its goal
-        if (wisp.position.x < wispGoal.x)
-        {
-            wisp.velocity = new Vector2(wispSpeed, wisp.velocity.y);
+        if(MoveDelay <= 0f){
+            gameObject.transform.position = Vector2.MoveTowards(wisp.position, wispGoal, 12f*Time.deltaTime);
+            MoveDelay = 0.003f;
         }
-        else if (wisp.position.x > wispGoal.x)
-        {
-            wisp.velocity = new Vector2(-wispSpeed, wisp.velocity.y);
-        }
-
-        if (wisp.position.y < wispGoal.y)
-        {
-            wisp.velocity = new Vector2(wisp.velocity.x, wispSpeed);
-        }
-        else if (wisp.position.y > wispGoal.y)
-        {
-            wisp.velocity = new Vector2(wisp.velocity.x, -wispSpeed);
-        }
+        MoveDelay -= Time.deltaTime;
         if(Vector2.Distance(wisp.position, wispGoal) <= 0.5f){
             wisp.velocity = new Vector2(0f, 0f);
         }
