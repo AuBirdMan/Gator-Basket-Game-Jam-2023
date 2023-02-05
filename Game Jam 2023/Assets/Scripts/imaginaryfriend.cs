@@ -30,7 +30,6 @@ public class imaginaryfriend : MonoBehaviour
         rb = player_go.GetComponent<Rigidbody2D>();
         cursorControl = false;
         speedMultiplier = 1f;
-        dashMultiplier = 2f;
 
     }
 
