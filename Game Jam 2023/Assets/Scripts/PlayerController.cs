@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     private Animator currentAnimator;
     private GameObject currentGameObject, wisp;
     private bool isLittle;
+    public ParticleSystem poofEffect, poofEffect2;
+    public GameObject clock;
+    private float ClockDelay = 0.75f;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,7 @@ public class PlayerController : MonoBehaviour
         currentAnimator = gameObject.transform.GetChild(1).GetComponent<Animator>();
         currentGameObject = gameObject.transform.GetChild(1).gameObject;
         wisp = GameObject.Find("Wisp");
+        wisp.SetActive(false);
     }
 
     // Update is called once per frame
@@ -69,6 +73,11 @@ public class PlayerController : MonoBehaviour
         }
         //swap
         if(Input.GetKeyDown(KeyCode.E)){
+            poofEffect.Play();
+            clock.SetActive(true);
+            clock.transform.localScale = new Vector3(1f, 1f, 1f);
+            ClockDelay = 0.75f;
+
             isLittle = !isLittle;
             //to adult
             if(!isLittle){
@@ -85,6 +94,7 @@ public class PlayerController : MonoBehaviour
             }
             //to kid
             else{
+                poofEffect2.Play();
                 rb.mass = 1;
                 jumpThrust = 25;
                 gameObject.transform.GetChild(0).gameObject.SetActive(true);
@@ -96,6 +106,12 @@ public class PlayerController : MonoBehaviour
                 wisp.SetActive(true);
                 
             }
+        }
+        if(clock.activeInHierarchy){
+            clock.transform.localScale += new Vector3(0.001f, 0.001f, 0f);
+        }
+        if(ClockDelay <= 0f){
+            clock.SetActive(false);
         }
        
     }
@@ -109,5 +125,8 @@ public class PlayerController : MonoBehaviour
             currentAnimator.SetBool("IsGrounded", false);
         }
         return result;
+    }
+    void FixedUpdate(){
+        ClockDelay -=Time.deltaTime;
     }
 }
