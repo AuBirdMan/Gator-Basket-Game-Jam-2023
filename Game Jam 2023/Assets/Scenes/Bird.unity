@@ -67745,7 +67745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1777784495632676373, guid: 7e297980e7580b741993b9d7601c10c9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.03773594
+      value: -116.6
       objectReference: {fileID: 0}
     - target: {fileID: 1777784495632676373, guid: 7e297980e7580b741993b9d7601c10c9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -68359,6 +68359,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9008606699629771795, guid: 159fcddedb73d454f815f46cc250ea58, type: 3}
+      propertyPath: ButtonRisedelay
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 9008606699629771804, guid: 159fcddedb73d454f815f46cc250ea58, type: 3}
       propertyPath: m_Name
       value: Button
@@ -68729,7 +68733,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5662379958455121565, guid: 351e0e08fc4ae3f4494fdf23dc66f258, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -113.16
+      value: -112
       objectReference: {fileID: 0}
     - target: {fileID: 5662379958455121565, guid: 351e0e08fc4ae3f4494fdf23dc66f258, type: 3}
       propertyPath: m_LocalPosition.z
@@ -68900,7 +68904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5662379958455121565, guid: 351e0e08fc4ae3f4494fdf23dc66f258, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -113.19086
+      value: -112
       objectReference: {fileID: 0}
     - target: {fileID: 5662379958455121565, guid: 351e0e08fc4ae3f4494fdf23dc66f258, type: 3}
       propertyPath: m_LocalPosition.z
