@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlatformBreak : MonoBehaviour
 {
-    void OnCollisionEnter2D(Collision2D col){
+    void OnCollisionStay2D(Collision2D col){
         GameObject player = GameObject.Find("Player");
         float yVelocity = player.GetComponent<Rigidbody2D>().velocity.y;
         Debug.Log(yVelocity);
