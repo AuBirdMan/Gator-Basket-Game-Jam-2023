@@ -104,6 +104,7 @@ public class imaginaryfriend : MonoBehaviour
     {
         if (col.gameObject.tag == "GrapplePoint" && cursorControl)
         {
+            Debug.Log("Hit");
             rb.AddForce((wisp_rb.position - rb.position).normalized * 5000f);
             cursorControl = false;
         }
