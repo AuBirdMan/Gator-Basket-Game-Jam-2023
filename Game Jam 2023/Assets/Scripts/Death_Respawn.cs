@@ -7,8 +7,11 @@ public class Death_Respawn : MonoBehaviour
     private Vector3 respawnPoint;
     private bool childActive;
     public ParticleSystem deathParticles;
+    [SerializeField] private AudioSource deathSFX;
+    [SerializeField] private AudioSource respawnSFX;
     void OnTriggerEnter2D(Collider2D col){
         if(col.gameObject.tag == "DeathZone"){
+            deathSFX.Play();
             if(gameObject.transform.GetChild(0).gameObject.activeInHierarchy){
                 childActive = true;
             }
@@ -30,6 +33,7 @@ public class Death_Respawn : MonoBehaviour
 
     IEnumerator Respawn(){
         yield return new WaitForSeconds(2f);
+        respawnSFX.Play();
         if(childActive){
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
