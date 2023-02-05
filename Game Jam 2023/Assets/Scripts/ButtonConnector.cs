@@ -16,12 +16,10 @@ public class ButtonConnector : MonoBehaviour
     void Update(){
         isPressed = !button.transform.GetChild(0).gameObject.activeInHierarchy;
         if(isPressed){
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.transform.GetChild(0).gameObject.SetActive(false);
         }
         else{
-            gameObject.GetComponent<BoxCollider2D>().enabled = true;
-            gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
         
     }

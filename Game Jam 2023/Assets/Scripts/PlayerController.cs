@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioSource jumpSFX;
     [SerializeField] private AudioSource landingSFX;
     [SerializeField] private AudioSource transformSFX;
+    [SerializeField] private AudioSource walkSFX;
 
     // Start is called before the first frame update
     void Start()
@@ -68,9 +69,12 @@ public class PlayerController : MonoBehaviour
         //gets left right movement
         horizontalMovement = Input.GetAxis("Horizontal");
         //movement
-        if(horizontalMovement != 0){
+        if (horizontalMovement != 0)
+        {
+            if (IsGrounded()) { walkSFX.volume = 0.6f; }
             rb.velocity = new Vector2(horizontalMovement * speed, rb.velocity.y);
         }
+        else { walkSFX.volume = 0; }
         //jump
         if(Input.GetKeyDown(KeyCode.Space) && IsGrounded()){
             rb.AddForce(transform.up * jumpThrust, ForceMode2D.Impulse);
