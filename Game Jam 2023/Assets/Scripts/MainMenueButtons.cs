@@ -6,35 +6,25 @@ using UnityEngine.UI;
 
 public class MainMenueButtons : MonoBehaviour
 {
+    public GameObject canvas1, canvas2;
+    
     private GameObject[] panels;
-    void Start()
-    {
-        panels = FindObjectsOfType<GameObject>();
-    }
 
     public void StartGame(){
         SceneManager.LoadScene("Back2Basics");
     }
-    public void Option(){
-        GameObject canvas = GameObject.Find("Canvas");
-        canvas.transform.GetChild(4).gameObject.SetActive(true);
+    public void Options(){
+        canvas2.transform.GetChild(0).gameObject.SetActive(true);
     }
     public void QuitGame(){
         Application.Quit();
     }
     public void Credits(){
-        GameObject canvas = GameObject.Find("Canvas");
-        canvas.transform.GetChild(0).gameObject.SetActive(true);
-    }
-
-     public void SetVolume (float volume)
-    {
-        Debug.Log(volume);
+        canvas1.transform.GetChild(0).gameObject.SetActive(true);
     }
 
     public void Back(){
-        GameObject canvas = GameObject.Find("Canvas");
-        canvas.transform.GetChild(0).gameObject.SetActive(false);
-        canvas.transform.GetChild(4).gameObject.SetActive(false);
+        canvas1.transform.GetChild(0).gameObject.SetActive(false);
+        canvas2.transform.GetChild(0).gameObject.SetActive(false);
     }
 }
