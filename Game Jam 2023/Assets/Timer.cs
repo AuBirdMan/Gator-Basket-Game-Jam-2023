@@ -14,6 +14,6 @@ public class Timer : MonoBehaviour
     {
         time += Time.deltaTime;
         timeText.text = ((int)time).ToString();
-
+        PlayerPrefs.SetInt("FinalTime", (int)time);
     }
 }
