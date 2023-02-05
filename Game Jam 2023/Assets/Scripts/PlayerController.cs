@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
             else{
                 poofEffect2.Play();
                 rb.mass = 1;
-                jumpThrust = 50;
+                jumpThrust = 35;
                 rb.drag = 5f;
                 gameObject.transform.GetChild(0).gameObject.SetActive(true);
                 gameObject.transform.GetChild(1).gameObject.SetActive(false);
