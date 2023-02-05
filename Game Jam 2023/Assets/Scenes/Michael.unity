@@ -305,6 +305,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: platform
       objectReference: {fileID: 0}
+    - target: {fileID: 957069136391295638, guid: dd7e79cd031ec9540ad3c4216def936c, type: 3}
+      propertyPath: m_Size.x
+      value: 1.9900951
+      objectReference: {fileID: 0}
+    - target: {fileID: 957069136391295638, guid: dd7e79cd031ec9540ad3c4216def936c, type: 3}
+      propertyPath: m_Size.y
+      value: 0.37947893
+      objectReference: {fileID: 0}
+    - target: {fileID: 957069136391295638, guid: dd7e79cd031ec9540ad3c4216def936c, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 957069136391295638, guid: dd7e79cd031ec9540ad3c4216def936c, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.009695768
+      objectReference: {fileID: 0}
     - target: {fileID: 957069136391295639, guid: dd7e79cd031ec9540ad3c4216def936c, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -364,11 +380,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1777784495632676373, guid: 7e297980e7580b741993b9d7601c10c9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.8
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 1777784495632676373, guid: 7e297980e7580b741993b9d7601c10c9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.723667
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1777784495632676373, guid: 7e297980e7580b741993b9d7601c10c9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -549,6 +565,7 @@ GameObject:
   - component: {fileID: 1707371408}
   - component: {fileID: 1707371407}
   - component: {fileID: 1707371406}
+  - component: {fileID: 1707371409}
   m_Layer: 0
   m_Name: imaginary_monster_0
   m_TagString: Untagged
@@ -649,6 +666,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1707371409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707371405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac349ed54980864b8d090e19e8f77f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3291341009273138430
 PrefabInstance:
   m_ObjectHideFlags: 0
