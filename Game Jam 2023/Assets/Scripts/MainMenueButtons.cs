@@ -2,9 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenueButtons : MonoBehaviour
 {
+    private Panel credits[];
+    void Start()
+    {
+        Panel credits[] = FindObjectsOfType<Panel>;
+    }
 
     public void StartGame(){
         SceneManager.LoadScene("Back2Basics");
@@ -16,7 +22,6 @@ public class MainMenueButtons : MonoBehaviour
         Application.Quit();
     }
     public void Credits(){
-        GameObject credits = GameObject.Find("Credits");
-        credits.SetActive(true);
+        credits.enabled=true;
     }
 }
