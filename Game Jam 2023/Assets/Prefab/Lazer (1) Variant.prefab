@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3993521007426600758
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3291341009687106240, guid: 287fbf4e42b37384596638d4fe2a9797, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291341009687106240, guid: 287fbf4e42b37384596638d4fe2a9797, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -18.1978
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291341009687106240, guid: 287fbf4e42b37384596638d4fe2a9797, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.7090168
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291341009687106240, guid: 287fbf4e42b37384596638d4fe2a9797, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291341009687106240, guid: 287fbf4e42b37384596638d4fe2a9797, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291341009687106240, guid: 287fbf4e42b37384596638d4fe2a9797, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291341009687106240, guid: 287fbf4e42b37384596638d4fe2a9797, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291341009687106240, guid: 287fbf4e42b37384596638d4fe2a9797, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291341009687106240, guid: 287fbf4e42b37384596638d4fe2a9797, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291341009687106240, guid: 287fbf4e42b37384596638d4fe2a9797, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291341009687106240, guid: 287fbf4e42b37384596638d4fe2a9797, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291341009687106244, guid: 287fbf4e42b37384596638d4fe2a9797, type: 3}
+      propertyPath: m_Flip.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291341009687106244, guid: 287fbf4e42b37384596638d4fe2a9797, type: 3}
+      propertyPath: m_Flip.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291341009687106244, guid: 287fbf4e42b37384596638d4fe2a9797, type: 3}
+      propertyPath: m_Flip.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291341009687106244, guid: 287fbf4e42b37384596638d4fe2a9797, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291341009687106245, guid: 287fbf4e42b37384596638d4fe2a9797, type: 3}
+      propertyPath: scalingMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291341009687106245, guid: 287fbf4e42b37384596638d4fe2a9797, type: 3}
+      propertyPath: useUnscaledTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291341009687106245, guid: 287fbf4e42b37384596638d4fe2a9797, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291341009687106245, guid: 287fbf4e42b37384596638d4fe2a9797, type: 3}
+      propertyPath: RotationModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291341009687106245, guid: 287fbf4e42b37384596638d4fe2a9797, type: 3}
+      propertyPath: ShapeModule.m_Rotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291341009687106245, guid: 287fbf4e42b37384596638d4fe2a9797, type: 3}
+      propertyPath: ShapeModule.m_Rotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291341009687106245, guid: 287fbf4e42b37384596638d4fe2a9797, type: 3}
+      propertyPath: ShapeModule.m_Rotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291341009687106245, guid: 287fbf4e42b37384596638d4fe2a9797, type: 3}
+      propertyPath: RotationModule.curve.scalar
+      value: 15.707963
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291341009687106245, guid: 287fbf4e42b37384596638d4fe2a9797, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291341009687106245, guid: 287fbf4e42b37384596638d4fe2a9797, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291341009687106247, guid: 287fbf4e42b37384596638d4fe2a9797, type: 3}
+      propertyPath: m_Name
+      value: Lazer (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 287fbf4e42b37384596638d4fe2a9797, type: 3}
