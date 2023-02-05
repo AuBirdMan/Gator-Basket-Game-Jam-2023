@@ -16,31 +16,20 @@ public class MainMenueButtons : MonoBehaviour
         SceneManager.LoadScene("Back2Basics");
     }
     public void Option(){
-        foreach (var panel in panels)
-        {
-            if(panel.name == "Options"){
-                panel.SetActive(true);
-            }
-        }
+        GameObject canvas = GameObject.Find("Canvas");
+        canvas.transform.GetChild(4).gameObject.SetActive(true);
     }
     public void QuitGame(){
         Application.Quit();
     }
     public void Credits(){
-        foreach (var panel in panels)
-        {
-            if(panel.name == "Credits"){
-                panel.SetActive(true);
-            }
-        }
+        GameObject canvas = GameObject.Find("Canvas");
+        canvas.transform.GetChild(0).gameObject.SetActive(true);
     }
 
     public void Back(){
-        foreach (var panel in panels)
-        {
-            if(panel.name == "Options" || panel.name == "Credits"){
-                panel.SetActive(true);
-            }
-        }
+        GameObject canvas = GameObject.Find("Canvas");
+        canvas.transform.GetChild(0).gameObject.SetActive(false);
+        canvas.transform.GetChild(4).gameObject.SetActive(false);
     }
 }
