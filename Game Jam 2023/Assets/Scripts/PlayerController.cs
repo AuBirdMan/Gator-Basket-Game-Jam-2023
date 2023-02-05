@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     public float jumpThrust;
     private Rigidbody2D rb;
     private float horizontalMovement;
-    private float maxVelocity = 18f;
     [SerializeField] private LayerMask groundObject;
     private BoxCollider2D currentCollider;
     private Animator currentAnimator;
