@@ -18,6 +18,7 @@ public class imaginaryfriend : MonoBehaviour
     private Vector2 force;
     private Rigidbody2D rb;
     private float speedMultiplier;
+    [SerializeField] private float dashMultiplier;
 
     // Start is called before the first frame update
     void Start(){
@@ -29,6 +30,7 @@ public class imaginaryfriend : MonoBehaviour
         rb = player_go.GetComponent<Rigidbody2D>();
         cursorControl = false;
         speedMultiplier = 1f;
+        dashMultiplier = 2f;
 
     }
 
@@ -64,15 +66,21 @@ public class imaginaryfriend : MonoBehaviour
             speedMultiplier = 1.5f;
         }
 
-        //Player dash
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        //Player dash 
+        /* if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            cursorControl = true;
-            wispGoal = rb.position;
-            rb.velocity += new Vector2(100f, rb.velocity.y);
-            
-        }
-        Debug.Log(rb.transform.rotation.y);
+            //cursorControl = true;
+            //wispGoal = rb.position;
+            if (rb.velocity.x > 0)
+            {
+                rb.AddForce(new Vector2(50f,1f) * dashMultiplier);
+            }
+            if (rb.velocity.x < 0)
+            {
+                rb.AddForce(new Vector2(-50f, 1f) * dashMultiplier);
+            }
+        } */
+
         //When the wisp reaches its goal, return to the player
         if (wisp_rb.position == wispGoal)
         {
