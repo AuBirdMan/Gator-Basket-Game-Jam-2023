@@ -17,6 +17,7 @@ public class imaginaryfriend : MonoBehaviour
     private float MoveDelay = 0.01f;
     private Vector2 force;
     private Rigidbody2D rb;
+    private float speedMultiplier;
 
     // Start is called before the first frame update
     void Start(){
@@ -27,6 +28,7 @@ public class imaginaryfriend : MonoBehaviour
         player_rb = GameObject.Find("Wisp").GetComponent<Rigidbody2D>();
         rb = player_go.GetComponent<Rigidbody2D>();
         cursorControl = false;
+        speedMultiplier = 1f;
 
     }
 
@@ -59,16 +61,28 @@ public class imaginaryfriend : MonoBehaviour
         {
             cursorControl = true;
             wispGoal = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            speedMultiplier = 1.5f;
         }
 
+        //Player dash
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            cursorControl = true;
+            wispGoal = rb.position;
+            rb.velocity += new Vector2(100f, rb.velocity.y);
+            
+        }
+        Debug.Log(rb.transform.rotation.y);
+        //When the wisp reaches its goal, return to the player
         if (wisp_rb.position == wispGoal)
         {
             cursorControl = false;
+            speedMultiplier = 1f;
         }
 
         //Makes the wisp move towards its goal
         if (MoveDelay <= 0f){
-            gameObject.transform.position = Vector2.MoveTowards(wisp_rb.position, wispGoal, 12f*Time.deltaTime);
+            gameObject.transform.position = Vector2.MoveTowards(wisp_rb.position, wispGoal, 12f*Time.deltaTime*speedMultiplier);
             MoveDelay = 0.003f;
         }
         MoveDelay -= Time.deltaTime;
@@ -77,11 +91,12 @@ public class imaginaryfriend : MonoBehaviour
         }
 
     }
+    //Checking for grapple point trigger
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "GrapplePoint" && cursorControl)
         {
-            rb.AddForce((wisp_rb.position - rb.position).normalized * 2000f);
+            rb.AddForce((wisp_rb.position - rb.position).normalized * 5000f);
             cursorControl = false;
         }
     }
