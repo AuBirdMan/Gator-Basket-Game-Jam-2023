@@ -6,11 +6,14 @@ public class PlatformBreak : MonoBehaviour
 {
     public Animator platformBreakAnim;
     public float TimeTillRespawn = 3f;
+    [SerializeField] AudioSource breakSFX;
+
     void OnCollisionEnter2D(Collision2D col){
         GameObject player = GameObject.Find("Player");
         float yVelocity = player.GetComponent<Rigidbody2D>().velocity.y;
         if(col.gameObject.tag == "Tall" && yVelocity <= 0.01){
             platformBreakAnim.SetBool("Broke", true);
+            breakSFX.Play();
             this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             StartCoroutine(RespawnPlatform());
         }

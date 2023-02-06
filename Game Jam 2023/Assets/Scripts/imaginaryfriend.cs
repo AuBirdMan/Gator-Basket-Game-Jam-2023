@@ -63,7 +63,7 @@ public class imaginaryfriend : MonoBehaviour
         {
             cursorControl = true;
             wispGoal = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            speedMultiplier = 1.5f;
+            speedMultiplier = 2f;
             launchSFX.Play();
         }
 
